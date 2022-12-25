@@ -2,6 +2,7 @@ package ru.evsmanko.mankoff.service;
 
 
 import com.github.cliftonlabs.json_simple.JsonObject;
+import com.github.cliftonlabs.json_simple.Jsoner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.evsmanko.mankoff.entity.Credit;
@@ -38,6 +39,7 @@ public class AverageIncome {
 
         JsonObject averageIncome = new JsonObject();
         averageIncome.put("averageIncome", (sumDebits / debits.size()) - (sumCredits / credits.size()));
+        Jsoner.serialize(averageIncome, writer);
         writer.close();
 
     }

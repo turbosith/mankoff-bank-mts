@@ -1,11 +1,7 @@
 package ru.evsmanko.mankoff.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.experimental.Accessors;
+import lombok.*;
 
 @Entity
 @Getter
@@ -13,6 +9,7 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode
 @Table(name="users")
 public class User {
     @Id

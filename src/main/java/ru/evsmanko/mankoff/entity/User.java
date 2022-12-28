@@ -6,6 +6,7 @@ import lombok.*;
 @Entity
 @Getter
 @Setter
+@Accessors(chain = true)
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode

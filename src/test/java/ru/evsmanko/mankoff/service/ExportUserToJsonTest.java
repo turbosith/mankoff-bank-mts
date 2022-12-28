@@ -11,7 +11,6 @@ import ru.evsmanko.mankoff.service.dto.UserMapper;
 import ru.evsmanko.mankoff.service.dto.UserDto;
 
 
-
 @SpringBootTest
 public class ExportUserToJsonTest {
     @Autowired
@@ -41,5 +40,11 @@ public class ExportUserToJsonTest {
         Mockito.when(userMapper.toDto(thirdUser))
                 .thenReturn(new UserDto(user.getFirstName(),
                         user.getLastName(), user.getPhone()));
+
+        var actual = userMapper.toDto(thirdUser);
+        var expected = new UserDto(user.getFirstName(),
+                user.getLastName(), user.getPhone());
+
+        Assertions.assertEquals(expected, actual);
     }
 }

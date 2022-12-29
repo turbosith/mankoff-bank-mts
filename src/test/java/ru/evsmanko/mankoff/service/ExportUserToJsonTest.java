@@ -10,6 +10,9 @@ import ru.evsmanko.mankoff.entity.User;
 import ru.evsmanko.mankoff.repository.UserRepository;
 import ru.evsmanko.mankoff.service.dto.UserMapper;
 import ru.evsmanko.mankoff.service.dto.UserDto;
+import ru.evsmanko.mankoff.service.properties.UserToJsonProperties;
+
+import java.io.*;
 
 
 @SpringBootTest
@@ -22,13 +25,19 @@ public class ExportUserToJsonTest {
     private UserRepository userRepository;
     @Autowired
     private UserMapper userMapper;
+    private final UserToJsonProperties userToJsonProperties;
+
+    @Autowired
+    public ExportUserToJsonTest(UserToJsonProperties userToJsonProperties) {
+        this.userToJsonProperties = userToJsonProperties;
+    }
 
 
     @Test
     public void testFirstUser() {
 
         Mockito.when(userRepository.getUserById(1))
-                .thenReturn(new User(1,"Евгений", "Манько", "79166679083"));
+                .thenReturn(new User(1, "Евгений", "Манько", "79166679083"));
 
         var expected = userRepository.getUserById(1);
         var actual = exportUserToJsonService.getUser(1L);
@@ -40,14 +49,41 @@ public class ExportUserToJsonTest {
         Long id = 1L;
 
         Mockito.when(userRepository.getUserById(1))
-                .thenReturn(new User(1,"Евгений", "Манько", "79166679083"));
+                .thenReturn(new User(1, "Евгений", "Манько", "79166679083"));
 
-        var thirdUser = userRepository.getUserById(id);
+        var firstUser = userRepository.getUserById(id);
         var user = exportUserToJsonService.getUser(id);
-        var actual = userMapper.toDto(thirdUser);
+        var actual = userMapper.toDto(firstUser);
         var expected = new UserDto(user.getFirstName(),
                 user.getLastName(), user.getPhone());
 
         Assertions.assertEquals(expected, actual);
     }
+
+    @Test
+    public void testAccessToProperties() {
+        var expected = "_user.json";
+        var actual = userToJsonProperties.getName();
+
+        Assertions.assertEquals(expected, actual);
+
+        expected = "src/main/resources/jsons/";
+        actual = userToJsonProperties.getPath();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testJsonCreation() {
+        Long id = 1L;
+        exportUserToJsonService.getUser(id);
+        var path = "src/main/resources/jsons/1_user.json";
+        File f = new File(path);
+
+        var actual = f.exists();
+        var expected = true;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
 }

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
 import ru.evsmanko.mankoff.dto.UserDto;
 import ru.evsmanko.mankoff.entity.User;
-import ru.evsmanko.mankoff.mapping.UserMapper;
+import ru.evsmanko.mankoff.mapping.ExampleMapper;
 import ru.evsmanko.mankoff.repository.UserRepository;
 
 @Service
@@ -17,12 +17,12 @@ public class ExampleService {
 
 	private final UserRepository userRepository;
 	
-	private final UserMapper userMapper;
+	private final ExampleMapper exampleMapper;
 	
 	public List<UserDto> getUsers() {
 		List<User> allUsers = userRepository.findAll();
 		return allUsers.stream()
-				.map(userMapper::mapUserToDto)
+				.map(exampleMapper::mapUserToDto)
 				.collect(Collectors.toList());
 	}
 }

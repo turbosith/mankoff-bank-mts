@@ -15,7 +15,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import ru.evsmanko.mankoff.dto.UserDto;
 import ru.evsmanko.mankoff.entity.User;
-import ru.evsmanko.mankoff.mapping.UserMapper;
+import ru.evsmanko.mankoff.mapping.ExampleMapper;
 import ru.evsmanko.mankoff.repository.UserRepository;
 
 @ExtendWith(MockitoExtension.class)
@@ -25,7 +25,7 @@ public class ExampleServiceTest {
 	private UserRepository repository;
 	
 	@Mock
-	private UserMapper mapper;
+	private ExampleMapper mapper;
 	
 	@InjectMocks
 	private ExampleService service;

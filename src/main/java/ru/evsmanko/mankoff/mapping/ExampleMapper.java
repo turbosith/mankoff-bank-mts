@@ -6,7 +6,7 @@ import ru.evsmanko.mankoff.dto.UserDto;
 import ru.evsmanko.mankoff.entity.User;
 
 @Component
-public class UserMapper {
+public class ExampleMapper {
 	
 	public UserDto mapUserToDto(User user) {
 		return new UserDto()

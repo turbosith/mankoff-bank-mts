@@ -2,6 +2,7 @@ package ru.evsmanko.mankoff.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.Accessors;
 
 @Entity
 @Data

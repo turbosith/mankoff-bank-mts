@@ -38,7 +38,7 @@ public class BalanceOfDebtServiceTest {
 		when(debitRepository.findAllByUserId(eq(2L))).thenReturn(Arrays.asList(
 				new Debit().setAmount(3), new Debit().setAmount(4)));
 		
-		double balance = service.getBalance();
+		double balance = service.getBalance().getAmount();
 		
 		assertEquals(10, balance);
 	}

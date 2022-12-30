@@ -16,33 +16,34 @@ import ru.evsmanko.mankoff.repository.UserRepository;
 @SpringBootTest
 public class BalanceOfDebtServiceITest {
 
-	@Autowired
-	private UserRepository userRepository;
-    
-	@Autowired
-	private DebitRepository debitRepository;
-	
-	@Autowired
-	private BalanceOfDebtService service;
-	
-	@Test
-	void testGetBalance() {
-		double expBalance = calculateCurrentBalance();
-		double balance = service.getBalance();
-		assertEquals(expBalance, balance);
-	}
-	
-	/*
-	 * Это очень оптимистичная реализация в надежде, что все данные есть.
-	 * Только для примера.
-	 */
-	private double calculateCurrentBalance() {
-		return userRepository.findAll().stream()
-			.map(User::getId)
-			.collect(Collectors.summarizingDouble(
-					id -> debitRepository.findAllByUserId(id).stream()
-						.collect(Collectors.summarizingDouble(Debit::getAmount)).getSum()))
-			.getSum();
-			
-	}
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private DebitRepository debitRepository;
+
+    @Autowired
+    private BalanceOfDebtService service;
+
+    @Test
+    void testGetBalance() {
+        double expBalance = calculateCurrentBalance();
+        double balance = service.getBalance().getAmount();
+        assertEquals(expBalance, balance);
+    }
+
+    /*
+     * Это очень оптимистичная реализация в надежде, что все данные есть.
+     * Только для примера.
+     */
+    private double calculateCurrentBalance() {
+        return userRepository.findAll().stream()
+                .map(User::getId)
+                .collect(Collectors.summarizingDouble(
+                        id -> debitRepository.findAllByUserId(id).stream()
+                                .collect(Collectors.summarizingDouble(Debit::getAmount))
+                                .getSum()))
+                                .getSum();
+
+    }
 }

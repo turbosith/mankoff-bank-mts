@@ -4,12 +4,9 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Getter
-@Setter
-@Accessors(chain = true)
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
 @Table(name="users")
 public class User {
     @Id

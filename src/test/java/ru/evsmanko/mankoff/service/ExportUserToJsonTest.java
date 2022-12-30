@@ -8,9 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import ru.evsmanko.mankoff.entity.User;
 import ru.evsmanko.mankoff.repository.UserRepository;
-import ru.evsmanko.mankoff.service.dto.UserMapper;
-import ru.evsmanko.mankoff.service.dto.UserDto;
-import ru.evsmanko.mankoff.service.properties.UserToJsonProperties;
+import ru.evsmanko.mankoff.mapping.UserMapper;
+import ru.evsmanko.mankoff.dto.UserDto;
+import ru.evsmanko.mankoff.properties.UserToJsonProperties;
 
 import java.io.*;
 

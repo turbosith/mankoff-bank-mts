@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.evsmanko.mankoff.entity.User;
 import ru.evsmanko.mankoff.repository.UserRepository;
-import ru.evsmanko.mankoff.service.properties.UserToJsonProperties;
+import ru.evsmanko.mankoff.properties.UserToJsonProperties;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;

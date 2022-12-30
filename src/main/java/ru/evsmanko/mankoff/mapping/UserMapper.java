@@ -1,7 +1,8 @@
-package ru.evsmanko.mankoff.service.dto;
+package ru.evsmanko.mankoff.mapping;
 
 import org.springframework.stereotype.Component;
 import ru.evsmanko.mankoff.entity.User;
+import ru.evsmanko.mankoff.dto.UserDto;
 
 @Component
 public class UserMapper {

@@ -19,7 +19,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
-import ru.evsmanko.mankoff.dto.UserDto;
+import ru.evsmanko.mankoff.dto.ExampleDto;
 import ru.evsmanko.mankoff.service.ExampleService;
 
 @SpringBootTest
@@ -36,7 +36,7 @@ public class ExampleControllerITest {
 	@Test
 	void testGetUsers() throws Exception {
 		when(service.getUsers())
-			.thenReturn(Arrays.asList(new UserDto().setFirstName("Иван").setLastName("Иванов")));
+			.thenReturn(Arrays.asList(new ExampleDto().setFirstName("Иван").setLastName("Иванов")));
 		
 		mvc.perform(get("/users")
 				.accept(MediaType.APPLICATION_JSON))

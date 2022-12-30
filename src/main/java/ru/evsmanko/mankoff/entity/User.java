@@ -9,6 +9,7 @@ import lombok.experimental.Accessors;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name="users")
+@Accessors(chain = true)
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

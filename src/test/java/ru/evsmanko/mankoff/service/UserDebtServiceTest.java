@@ -1,12 +1,10 @@
 package ru.evsmanko.mankoff.service;
 
-import com.google.gson.JsonElement;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import ru.evsmanko.mankoff.dto.UserDto;
 import ru.evsmanko.mankoff.entity.Credit;
 import ru.evsmanko.mankoff.entity.Debit;
 import ru.evsmanko.mankoff.entity.User;
@@ -15,7 +13,6 @@ import ru.evsmanko.mankoff.repository.DebitRepository;
 import ru.evsmanko.mankoff.repository.UserRepository;
 
 import java.util.Arrays;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;

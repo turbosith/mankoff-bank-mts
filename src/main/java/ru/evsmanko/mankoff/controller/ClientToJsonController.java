@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import ru.evsmanko.mankoff.service.ExportUserToJsonService;
-import ru.evsmanko.mankoff.service.dto.UserMapper;
-import ru.evsmanko.mankoff.service.dto.UserDto;
+import ru.evsmanko.mankoff.mapping.UserMapper;
+import ru.evsmanko.mankoff.dto.UserDto;
 
 @RestController
 @RequestMapping("ClientToJson")

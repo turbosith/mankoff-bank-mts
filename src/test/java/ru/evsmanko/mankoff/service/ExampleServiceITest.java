@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import ru.evsmanko.mankoff.dto.UserDto;
+import ru.evsmanko.mankoff.dto.ExampleDto;
 import ru.evsmanko.mankoff.entity.User;
 import ru.evsmanko.mankoff.repository.UserRepository;
 
@@ -24,7 +24,7 @@ public class ExampleServiceITest {
 	@Test
 	void testGetUsers() {
 		List<User> usersInDb = repository.findAll();
-		List<UserDto> usersFromService = service.getUsers();
+		List<ExampleDto> usersFromService = service.getUsers();
 		
 		usersInDb.forEach(u -> {
 			assertTrue(usersFromService.stream().anyMatch(ufs -> {

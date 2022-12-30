@@ -13,7 +13,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import ru.evsmanko.mankoff.dto.UserDto;
+import ru.evsmanko.mankoff.dto.ExampleDto;
 import ru.evsmanko.mankoff.entity.User;
 import ru.evsmanko.mankoff.mapping.ExampleMapper;
 import ru.evsmanko.mankoff.repository.UserRepository;
@@ -36,7 +36,7 @@ public class ExampleServiceTest {
 				.thenReturn(Arrays.asList(new User().setId(1)));
 		when(mapper.mapUserToDto(any(User.class))).thenCallRealMethod();
 		
-		List<UserDto> allUsers = service.getUsers();
+		List<ExampleDto> allUsers = service.getUsers();
 		assertEquals(1, allUsers.size());
 	}
 }

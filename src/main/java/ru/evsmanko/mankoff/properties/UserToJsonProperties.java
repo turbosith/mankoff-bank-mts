@@ -1,4 +1,4 @@
-package ru.evsmanko.mankoff.service.properties;
+package ru.evsmanko.mankoff.properties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

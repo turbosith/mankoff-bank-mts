@@ -14,11 +14,14 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import ru.evsmanko.mankoff.entity.Debit;
 import ru.evsmanko.mankoff.entity.User;
+import ru.evsmanko.mankoff.properties.BalanceOfDebtProperties;
 import ru.evsmanko.mankoff.repository.DebitRepository;
 import ru.evsmanko.mankoff.repository.UserRepository;
 
 @ExtendWith(MockitoExtension.class)
 public class BalanceOfDebtServiceTest {
+	@Mock
+	private BalanceOfDebtProperties properties;
 
 	@Mock
 	private UserRepository userRepository;
@@ -37,6 +40,8 @@ public class BalanceOfDebtServiceTest {
 				new Debit().setAmount(1), new Debit().setAmount(2)));
 		when(debitRepository.findAllByUserId(eq(2L))).thenReturn(Arrays.asList(
 				new Debit().setAmount(3), new Debit().setAmount(4)));
+		when(properties.getCurrentCurrency()).thenReturn("USD");
+		when(properties.getUsdToRub()).thenReturn(1.0);
 		
 		double balance = service.getBalance().getAmount();
 		

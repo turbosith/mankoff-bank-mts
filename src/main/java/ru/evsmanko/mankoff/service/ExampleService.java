@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
-import ru.evsmanko.mankoff.dto.UserDto;
+import ru.evsmanko.mankoff.dto.ExampleDto;
 import ru.evsmanko.mankoff.entity.User;
 import ru.evsmanko.mankoff.mapping.ExampleMapper;
 import ru.evsmanko.mankoff.repository.UserRepository;
@@ -19,7 +19,7 @@ public class ExampleService {
 	
 	private final ExampleMapper exampleMapper;
 	
-	public List<UserDto> getUsers() {
+	public List<ExampleDto> getUsers() {
 		List<User> allUsers = userRepository.findAll();
 		return allUsers.stream()
 				.map(exampleMapper::mapUserToDto)

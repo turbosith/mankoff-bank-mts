@@ -10,3 +10,11 @@ spring:
   jsons:
     path: src/main/resources/jsons/
     name: _user.json
+
+app:
+  currency:
+    currentCurrency: USD
+    usdToRub: 70
+    eurToRub: 75
+    rubToRub: 1
+

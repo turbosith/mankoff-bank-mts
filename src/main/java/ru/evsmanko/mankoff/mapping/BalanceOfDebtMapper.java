@@ -5,7 +5,7 @@ import ru.evsmanko.mankoff.dto.BalanceOfDebtDTO;
 
 @Component
 public class BalanceOfDebtMapper {
-    public BalanceOfDebtDTO toDto(double amount) {
-        return new BalanceOfDebtDTO().setAmount(amount);
+    public BalanceOfDebtDTO toDto(double amount , String currency) {
+        return new BalanceOfDebtDTO().setAmount(amount).setCurrency(currency);
     }
 }

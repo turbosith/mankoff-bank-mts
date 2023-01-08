@@ -1,18 +1,23 @@
 package ru.evsmanko.mankoff.controller;
 
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import ru.evsmanko.mankoff.dto.AverageIncomeDTO;
 import ru.evsmanko.mankoff.service.AverageIncomeService;
 
 @RestController
-@RequestMapping("averageIncome")
+@AllArgsConstructor
+@RequestMapping(value="/averageIncome",produces="application/json")
 public class AverageIncomeRestController {
-    private AverageIncomeService averageIncomeService;
+    @Autowired
+    private final AverageIncomeService averageIncomeService;
 
-    @GetMapping
-    public double getAverageIncome(long id) {
+
+    @GetMapping("/{id}")
+    public AverageIncomeDTO getAverageIncome(@PathVariable("id") long id) {
         return averageIncomeService.averageIncome(id);
+
     }
 }

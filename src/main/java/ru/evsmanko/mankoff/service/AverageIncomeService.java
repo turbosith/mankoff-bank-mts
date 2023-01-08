@@ -17,7 +17,7 @@ public class AverageIncomeService {
     private final DebitRepository debitRepository;
     private final CreditRepository creditRepository;
 
-    double averageIncome;
+
 
     public AverageIncomeDTO averageIncome(long id) {
         List<Debit> debits = debitRepository.findAllByUserId(id);
@@ -30,8 +30,7 @@ public class AverageIncomeService {
         for (Credit credit : credits) {
             sumCredits += credit.getAmount();
         }
-        averageIncome = (sumDebits / debits.size()) - (sumCredits / credits.size());
-        return new AverageIncomeMapper().toDto(averageIncome);
+        return new AverageIncomeMapper().toDto((sumDebits / debits.size()) - (sumCredits / credits.size()));
 
     }
 }

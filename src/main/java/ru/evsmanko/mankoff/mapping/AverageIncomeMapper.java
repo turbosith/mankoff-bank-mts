@@ -4,11 +4,10 @@ import org.springframework.stereotype.Component;
 import ru.evsmanko.mankoff.dto.AverageIncomeDTO;
 
 
-
 @Component
 public class AverageIncomeMapper {
-    public AverageIncomeDTO toDto(double  averageIncome){
+    public AverageIncomeDTO toDto(double averageIncome, String curency) {
 
-            return new AverageIncomeDTO().setAverageIncome(averageIncome);
-        }
+        return new AverageIncomeDTO().setAverageIncome(averageIncome).setCurrency(curency);
     }
+}

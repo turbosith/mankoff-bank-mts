@@ -4,9 +4,9 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 
 
-    @Accessors(chain = true)
-    @Data
-    public class AverageIncomeDTO {
-        private double averageIncome;
-    }
-
+@Accessors(chain = true)
+@Data
+public class AverageIncomeDTO {
+    private double averageIncome;
+    private String currency;
+}

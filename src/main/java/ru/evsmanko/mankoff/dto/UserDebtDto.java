@@ -7,4 +7,5 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 public class UserDebtDto {
     private double debt;
+    private String currency;
 }

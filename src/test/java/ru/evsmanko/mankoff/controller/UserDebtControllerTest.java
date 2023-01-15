@@ -32,12 +32,13 @@ public class UserDebtControllerTest {
         user.setId(1);
 
         when(service.userDebt(user.getId()))
-                .thenReturn(new UserDebtDto().setDebt(10000.0));
+                .thenReturn(new UserDebtDto().setDebt(10000.0).setCurrency("RUB"));
 
         mvc.perform(get("/UserDebt/1"))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.debt").value(10000));
+                .andExpect(jsonPath("$.debt").value(10000))
+                .andExpect(jsonPath("$.currency").value("RUB"));
 
         verify(service).userDebt(user.getId());
 

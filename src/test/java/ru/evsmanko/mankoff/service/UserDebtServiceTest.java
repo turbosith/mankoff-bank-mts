@@ -5,6 +5,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import ru.evsmanko.mankoff.dto.UserDebtDto;
 import ru.evsmanko.mankoff.entity.Credit;
 import ru.evsmanko.mankoff.entity.Debit;
 import ru.evsmanko.mankoff.entity.User;
@@ -38,7 +39,7 @@ public class UserDebtServiceTest {
                 new Debit().setAmount(3), new Debit().setAmount(2)));
         when(creditRepository.findAllByUserId(eq(1L))).thenReturn(Arrays.asList(
                 new Credit().setAmount(1), new Credit().setAmount(2)));
-        double debt = service.userDebt(1);
-        assertEquals(2, debt);
+        UserDebtDto debt = service.userDebt(1);
+        assertEquals(2, debt.getDebt());
     }
 }

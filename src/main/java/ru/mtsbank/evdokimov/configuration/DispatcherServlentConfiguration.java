@@ -1,4 +1,4 @@
-package mtsbank.evdokimov.configuration;
+package ru.mtsbank.evdokimov.configuration;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
@@ -10,7 +10,7 @@ public class DispatcherServlentConfiguration extends AbstractAnnotationConfigDis
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[0](SpringMVCConfiguration.class);
+        return new Class[]{SpringMVCConfiguration.class};
     }
 
     @Override

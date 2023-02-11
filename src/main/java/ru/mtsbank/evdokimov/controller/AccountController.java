@@ -1,4 +1,4 @@
-package mtsbank.evdokimov.controller;
+package ru.mtsbank.evdokimov.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

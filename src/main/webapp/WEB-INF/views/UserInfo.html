@@ -1,6 +1,26 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
+<style>
+    html {
+        background-color: gray;
+    }
 
+    p {
+        font-size: 16px;
+    }
+
+    body {
+        width: 600px;
+        margin: 0 auto;
+        background-color: white;
+        padding: 20px 20px 20px 20px;
+        border: 5px solid black;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+</style>
 <head>
     <meta charset="ISO-8859-1">
     <title>User Information</title>
@@ -8,12 +28,11 @@
 
 <body>
 
-<p>User Information:</p>
-<p>ID: 1</p>
-<p>Name: Alexander</p>
-<p>Surname: Malikov</p>
-<p>Balance: 100$</p>
-<p>Debt: 10$</p>
+<h1>User Information:</h1>
+<p th:text="${id}"></p>
+<p th:text="${firstName}"></p>
+<p th:text="${lastName}"></p>
+<p th:text="${debt}"></p>
 
 </body>
 

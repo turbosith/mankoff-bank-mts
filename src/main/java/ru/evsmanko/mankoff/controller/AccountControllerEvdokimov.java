@@ -1,10 +1,13 @@
-package ru.mtsbank.evdokimov.controller;
+package ru.evsmanko.mankoff.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+/**
+ * Контроллер, показывающая задолеженность клиента перед банком
+ */
 @Controller
-public class AccountController {
+public class AccountControllerEvdokimov {
     @GetMapping("/credit")
     public String getCredit(){
         return "credit";

@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 /**
- * Контроллер, показывающая задолеженность клиента перед банком
+ * Контроллер, показывающий задолеженность клиента перед банком
  */
 @Controller
 public class AccountControllerEvdokimov {

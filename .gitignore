@@ -33,3 +33,5 @@ build/
 .vscode/
 
 /bin
+/mankoff_bank_db.mv.db
+/mankoff_bank_db.trace.db

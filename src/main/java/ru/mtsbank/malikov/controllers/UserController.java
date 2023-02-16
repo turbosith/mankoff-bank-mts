@@ -10,7 +10,7 @@ import ru.evsmanko.mankoff.repository.UserInfoRepository;
 @Controller
 @AllArgsConstructor
 @RequestMapping("/malikov")
-public class AccountController {
+public class UserController {
     private final UserInfoRepository userInfoRepository;
 
     @GetMapping("/user/{id}")

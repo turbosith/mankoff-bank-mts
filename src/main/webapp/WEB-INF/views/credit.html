@@ -1,38 +1,53 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymleaf.org">
 <head>
+    <link rel="stylesheet" href="C:\Users\79165\Documents\mankoff\mb2\mankoff-bank\src\main\webapp\resources\css\credit.css">
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./styles/style.css">
-    <title>Задолженности</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+    <title th:text="${title}"></title>
 </head>
 <body>
 <header>
-    <h1>Здравствуйте, клиент! На этой странице вы можете посмотреть свои задолженности</h1>
-    <p>Также ознакомьтесь с вашей историей платежей</p>
-    <nav>
-        <ul>
-            <li><a href="index.html">История платежей</a></li>
-        </ul>
-    </nav>
+
+
 </header>
 <main>
-    <article>
-        <section>
-            <h2>Суммарная задолженность</h2>
-            <p>1000 рублей</p>
-        </section>
-        <section>
-            <h2>Задолженность по месяцам</h2>
-            <p>Январь 200</p>
-            <p>Февраль 500</p>
-            <p>Март 300</p>
-        </section>
-    </article>
+    <div class="jumbotron text-center">
+        <h1 th:text="${name} +', здравствуйте! На этой странице вы можете посмотреть свои задолженности'"></h1>
+        <p>Также ознакомьтесь с вашей историей платежей</p>
+        <nav>
+            <ul>
+                <li><a href="err">История платежей</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <h3>Суммарная задолженность</h3>
+                <p th:text="${sumArrears}+' рублей'"> </p>
+            </div>
+            <div class="col-sm-4">
+                <h3>Общий доход и расход</h3>
+                <p th:text="'Общий расход '+${sumCredits}+' рублей'"> </p>
+                <p th:text="'Общий доход '+${sumDebits}+' рублей'"> </p>
+            </div>
+            <div class="col-sm-4">
+                <h3>Контакты службы поддержки</h3>
+                <p th:text="'Номер телефона '+${number}"></p>
+                <p th:text="'Email '+${email}"></p>
+            </div>
+        </div>
+    </div>
 </main>
-
-
 </body>
 </html>

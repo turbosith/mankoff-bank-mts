@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  * Контроллер, показывающий задолеженность клиента перед банком
  */
 @Controller
-public class AccountController {
+public class CreditController {
     @GetMapping("/credit")
     public String getCredit(){
         return "credit";

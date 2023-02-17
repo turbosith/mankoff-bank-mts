@@ -15,11 +15,7 @@ public class UserController {
 
     @GetMapping("/user/{id}")
     public String showUserInfo(Model model, @PathVariable("id") Long id) {
-        model.addAttribute("id", "ID: " + id);
-        model.addAttribute("firstName", "Name: " + userInfoRepository.getUserById(id).getFirstName());
-        model.addAttribute("lastName", "Surname: " + userInfoRepository.getUserById(id).getLastName());
-        model.addAttribute("age", "Age: " + userInfoRepository.getUserById(id).getAge());
-        model.addAttribute("city", "City: " + userInfoRepository.getUserById(id).getCity());
+        model.addAttribute("user", userInfoRepository.findById(id).get());
         return "UserInfo";
     }
 
@@ -30,7 +26,7 @@ public class UserController {
     }
 
     @GetMapping("/user/create")
-    public String ShowNewUserForm(Model model){
+    public String showNewUserForm(Model model){
         model.addAttribute("user" , new UserInfoEntity());
         return "NewUserForm";
     }

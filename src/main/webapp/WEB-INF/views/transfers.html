@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transfers</title>
+</head>
+<body>
+<div th:if="${transfers != null}">
+    <h1>Transfers list</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>SENDER ID</th>
+            <th>RECEIVER ID</th>
+            <th>DEPARTURE TIME</th>
+            <th>AMOUNT</th>
+        </tr>
+        <tr th:each="transfer : ${transfers}">
+            <td th:text="${transfer.id}"></td>
+            <td th:text="${transfer.senderId}"></td>
+            <td th:text="${transfer.receiverId}"></td>
+            <td th:text="${transfer.departureTime}"></td>
+            <td th:text="${transfer.amount}"></td>
+        </tr>
+    </table>
+</div>
+
+
+</body>
+</html>

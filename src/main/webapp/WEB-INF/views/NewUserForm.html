@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<style>
+    html {
+        background-color: gray;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    body {
+        width: 600px;
+        margin: 0 auto;
+        background-color: white;
+        padding: 20px 20px 20px 20px;
+        border: 5px solid black;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    label{
+        line-height: 3px;
+    }
+</style>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Create New User</title>
+</head>
+
+<body>
+
+<h1>Create new user:</h1>
+<form th:method="POST" th:action="@{/malikov}" th:object="${user}">
+    <label for="firstName">Name: </label>
+    <input type="text" th:field="*{firstName}" id="firstName"/>
+    <br/>
+    <label for="lastName">Surname: </label>
+    <input type="text" th:field="*{lastName}" id="lastName"/>
+    <br/>
+    <label for="age">Age: </label>
+    <input type="text" th:field="*{age}" id="age"/>
+    <br/>
+    <label for="city">City: </label>
+    <input type="text" th:field="*{city}" id="city"/>
+    <br/>
+    <input type="submit" value="Create">
+</form>
+</body>
+
+</html>

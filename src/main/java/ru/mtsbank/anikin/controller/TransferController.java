@@ -8,13 +8,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.evsmanko.mankoff.entity.Transfer;
+import ru.evsmanko.mankoff.repository.TransferJDBCRepository;
 import ru.evsmanko.mankoff.repository.TransferRepository;
 
 @Controller
 @AllArgsConstructor
 @RequestMapping(path = "transfers")
 public class TransferController {
-    private final TransferRepository transferRepository;
+    private final TransferJDBCRepository transferRepository;
 
     @GetMapping
     public String showTransfers(Model model) {

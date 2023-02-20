@@ -7,8 +7,8 @@
 <body>
 <div class="container">
     <form th:method="POST" th:action="@{/transfers}" th:object="${transfer}">
-        <label for="Id">id</label>
-        <input type="int" th:field="*{Id}" id="Id"/>
+        <label for="id">Id</label>
+        <input type="int" th:field="*{id}" id="id"/>
         <br>
         <label for="senderId">Sender id</label>
         <input type="int" th:field="*{senderId}" id="senderId"/>
@@ -19,7 +19,7 @@
         <br>
 
         <label for="departureTime">Departure time</label>
-        <input type="time" th:field="*{departureTime}" id="departureTime"/>
+        <input type="datetime-local" th:field="*{departureTime}" id="departureTime"/>
         <br>
 
         <label for="amount">Amount</label>

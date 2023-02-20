@@ -2,14 +2,18 @@ package ru.evsmanko.mankoff.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.sql.Timestamp;
+import java.util.Date;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode
 @Setter
+@Getter
 @Table(name="TRANSFERS")
 public class Transfer {
     @Id
@@ -20,7 +24,8 @@ public class Transfer {
     @Column(name = "RECEIVERID")
     private int receiverId;
     @Column(name = "DEPARTURETIME")
-    private Timestamp departureTime;
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+    private Date departureTime;
     @Column(name = "AMOUNT")
     private int amount;
 }

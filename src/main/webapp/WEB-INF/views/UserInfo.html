@@ -29,11 +29,11 @@
 <body>
 
 <h1>User Information:</h1>
-<p>Id: <span th:text="${user.getId}"> </span></p>
-<p>Name: <span th:text="${user.getFirstName}"> </span></p>
-<p>Surname: <span th:text="${user.getLastName}"> </span></p>
-<p>Age: <span th:text="${user.getAge}"> </span></p>
-<p>City: <span th:text="${user.getCity}"> </span></p>
+<p th:text="'Id: ' + ${user.getId}"></p>
+<p th:text="'Name: ' + ${user.getFirstName}"></p>
+<p th:text="'Surname: ' + ${user.getLastName}"></p>
+<p th:text="'Age: ' + ${user.getAge}"></p>
+<p th:text="'City: ' + ${user.getCity}"></p>
 
 
 </body>

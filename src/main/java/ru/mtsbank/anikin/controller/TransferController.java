@@ -8,25 +8,24 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.evsmanko.mankoff.entity.Transfer;
-import ru.evsmanko.mankoff.repository.TransferJDBCRepository;
-import ru.evsmanko.mankoff.repository.TransferRepository;
+import ru.evsmanko.mankoff.service.TransferService;
 
 @Controller
 @AllArgsConstructor
 @RequestMapping(path = "transfers")
 public class TransferController {
-    private final TransferJDBCRepository transferRepository;
+    private final TransferService transferService;
 
     @GetMapping
     public String showTransfers(Model model) {
-        var transfers = transferRepository.findAll();
+        var transfers = transferService.findAll();
         model.addAttribute("transfers", transfers);
         return "transfers";
     }
 
     @GetMapping(path="/bySender")
     public String showBySenderId(@RequestParam(value = "id") Long id, Model model) {
-        var transfers = transferRepository.findBySenderId(id);
+        var transfers = transferService.findBySenderId(id);
         model.addAttribute("transfers", transfers);
         return "transfers";
     }
@@ -39,7 +38,7 @@ public class TransferController {
 
     @PostMapping
     public String saveTransfer(Transfer transfer){
-        transferRepository.save(transfer);
+        transferService.save(transfer);
         return "redirect:/transfers";
     }
 }

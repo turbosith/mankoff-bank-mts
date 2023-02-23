@@ -13,6 +13,6 @@ import java.util.List;
  */
 @Repository
 public interface OfferRepository extends CrudRepository<OfferEntity, Long> {
-    List<OfferEntity> findAllByUserId(long userId);
+    //List<OfferEntity> findAllByUserId(long userId);
     OfferEntity save(OfferEntity offer);
 }

@@ -65,6 +65,12 @@ public class OfferController {
         model.addAttribute("email", "mts@mts.ru");
         return "offer";
     }
+    @GetMapping("/offer/all")
+    public String getOffers( Model model) {
+        List<OfferEntity> offers = offerRepository.findAll();
+        model.addAttribute("offers", offers);
+        return "offers";
+    }
     @GetMapping("/offer/add")
     public String newOffer(Model model){
         model.addAttribute("offer" , new OfferEntity());

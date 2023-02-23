@@ -11,14 +11,16 @@ import lombok.experimental.Accessors;
 @AllArgsConstructor
 @Data
 @NoArgsConstructor
-@Table(name="offers")
+@Table(name="OFFERS")
 public class OfferEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column(name = "HEADING")
     private String heading;
+    @Column(name = "DESCRIPTION")
     private String description;
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "USERID")
     private User user;
 }

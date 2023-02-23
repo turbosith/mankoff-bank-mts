@@ -8,10 +8,7 @@ import ru.evsmanko.mankoff.entity.Credit;
 import ru.evsmanko.mankoff.entity.Debit;
 import ru.evsmanko.mankoff.entity.OfferEntity;
 import ru.evsmanko.mankoff.entity.User;
-import ru.evsmanko.mankoff.repository.CreditRepository;
-import ru.evsmanko.mankoff.repository.DebitRepository;
-import ru.evsmanko.mankoff.repository.OfferRepository;
-import ru.evsmanko.mankoff.repository.UserRepository;
+import ru.evsmanko.mankoff.repository.*;
 
 import java.util.List;
 
@@ -25,7 +22,7 @@ public class OfferController {
     private final  CreditRepository creditRepository;
     private final DebitRepository debitRepository;
     private final UserRepository userRepository;
-    private final OfferRepository offerRepository;
+    private final OfferJDBCRepository offerRepository;
 
     @GetMapping("/credit/{id}")
     public String getCredit(@PathVariable(value = "id") long id, Model model) {

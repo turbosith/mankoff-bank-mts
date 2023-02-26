@@ -7,5 +7,5 @@ import ru.evsmanko.mankoff.entity.OfferEntity;
 @Mapper(componentModel = "spring")
 public interface OfferMapper {
     OfferDTO toDTO(OfferEntity offer);
-    OfferEntity toModel(OfferDTO dto);
+    OfferEntity toEntity(OfferDTO dto);
 }

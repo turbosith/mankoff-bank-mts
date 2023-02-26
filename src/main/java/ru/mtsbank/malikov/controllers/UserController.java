@@ -7,23 +7,23 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.evsmanko.mankoff.entity.UserInfoEntity;
-import ru.evsmanko.mankoff.repository.malikov.UserInfoJDBCRepository;
+import ru.evsmanko.mankoff.service.UserInfoService;
 
 @Controller
 @AllArgsConstructor
 @RequestMapping("/malikov")
 public class UserController {
-    private final UserInfoJDBCRepository userInfoRepository;
+    private final UserInfoService userInfoService;
 
     @GetMapping("/user/{id}")
     public String showUserInfo(Model model, @PathVariable("id") Long id) {
-        model.addAttribute("user", userInfoRepository.findUserById(id));
+        model.addAttribute("user", userInfoService.findUserById(id));
         return "UserInfo";
     }
 
     @GetMapping("/users")
     public String showAllUsers(Model model) {
-        model.addAttribute("users", userInfoRepository.findAll());
+        model.addAttribute("users", userInfoService.findAll());
         return "Users";
     }
 
@@ -37,7 +37,7 @@ public class UserController {
     public String createNewUser(@ModelAttribute("user") @Valid UserInfoEntity user,
                                 BindingResult bindingResult) {
         if (bindingResult.hasErrors()) return "NewUserForm";
-        userInfoRepository.save(user);
+        userInfoService.save(user);
         return "redirect:/malikov/users";
     }
 }

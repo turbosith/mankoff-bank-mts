@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head>
+  <link rel="stylesheet" href="C:\Users\79165\Documents\mankoff\mb2\mankoff-bank\src\main\webapp\resources\css\credit.css">
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<header>
+
+
+</header>
+<main>
+  <div class="jumbotron text-center">
+
+
+    <br/>
+    <ul class="list-group">
+      <b class="list-group-item">Ваши специальные предложения</b>
+      <tr th:each="offer: ${offers}">
+        <li th:text="'Заголовок оффера ' +${offer.heading}" class="list-group-item list-group-item-primary"></li>
+        <li th:text="'Описание оффера: '+${offer.description}" class="list-group-item list-group-item-primary">This is a primary list group item</li>
+        <li th:text="'ID оффера: '+${offer.id}" class="list-group-item list-group-item-primary">This is a primary list group item</li>
+        <li class="list-group-item list-group-item-light"></li>
+      </tr>
+
+
+
+    </ul>
+  </div>
+</main>
+</body>
+</html>

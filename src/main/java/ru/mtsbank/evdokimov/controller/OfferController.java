@@ -8,10 +8,7 @@ import ru.evsmanko.mankoff.entity.Credit;
 import ru.evsmanko.mankoff.entity.Debit;
 import ru.evsmanko.mankoff.entity.OfferEntity;
 import ru.evsmanko.mankoff.entity.User;
-import ru.evsmanko.mankoff.repository.CreditRepository;
-import ru.evsmanko.mankoff.repository.DebitRepository;
-import ru.evsmanko.mankoff.repository.OfferRepository;
-import ru.evsmanko.mankoff.repository.UserRepository;
+import ru.evsmanko.mankoff.repository.*;
 
 import java.util.List;
 
@@ -25,7 +22,7 @@ public class OfferController {
     private final  CreditRepository creditRepository;
     private final DebitRepository debitRepository;
     private final UserRepository userRepository;
-    private final OfferRepository offerRepository;
+    private final OfferJDBCRepository offerRepository;
 
     @GetMapping("/credit/{id}")
     public String getCredit(@PathVariable(value = "id") long id, Model model) {
@@ -67,6 +64,12 @@ public class OfferController {
         model.addAttribute("number", "+7(916)502-54-63");
         model.addAttribute("email", "mts@mts.ru");
         return "offer";
+    }
+    @GetMapping("/offer/all")
+    public String getOffers( Model model) {
+        List<OfferEntity> offers = offerRepository.findAll();
+        model.addAttribute("offers", offers);
+        return "offers";
     }
     @GetMapping("/offer/add")
     public String newOffer(Model model){

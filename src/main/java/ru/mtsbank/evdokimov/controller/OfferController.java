@@ -4,11 +4,13 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import ru.evsmanko.mankoff.dto.OfferDTO;
 import ru.evsmanko.mankoff.entity.Credit;
 import ru.evsmanko.mankoff.entity.Debit;
 import ru.evsmanko.mankoff.entity.OfferEntity;
 import ru.evsmanko.mankoff.entity.User;
 import ru.evsmanko.mankoff.repository.*;
+import ru.evsmanko.mankoff.service.OfferService;
 
 import java.util.List;
 
@@ -22,7 +24,7 @@ public class OfferController {
     private final  CreditRepository creditRepository;
     private final DebitRepository debitRepository;
     private final UserRepository userRepository;
-    private final OfferJDBCRepository offerRepository;
+    private final OfferService offerRepository;
 
     @GetMapping("/credit/{id}")
     public String getCredit(@PathVariable(value = "id") long id, Model model) {
@@ -57,7 +59,7 @@ public class OfferController {
 
     @GetMapping("/offer/{id}")
     public String getOffer(@PathVariable(value = "id") long id, Model model) {
-        List<OfferEntity> offers = offerRepository.findAllByUserId(id);
+        List<OfferDTO> offers = offerRepository.findAllByUserId(id);
         User user = userRepository.getUserById(id);
         model.addAttribute("offers", offers);
         model.addAttribute("name", user.getFirstName()+" "+user.getLastName());
@@ -67,7 +69,7 @@ public class OfferController {
     }
     @GetMapping("/offer/all")
     public String getOffers( Model model) {
-        List<OfferEntity> offers = offerRepository.findAll();
+        List<OfferDTO> offers = offerRepository.findAll();
         model.addAttribute("offers", offers);
         return "offers";
     }

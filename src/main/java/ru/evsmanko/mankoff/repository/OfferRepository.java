@@ -13,6 +13,9 @@ import java.util.List;
  */
 @Repository
 public interface OfferRepository extends CrudRepository<OfferEntity, Long> {
-    //List<OfferEntity> findAllByUserId(long userId);
+    @Override
+    List<OfferEntity> findAll();
+    List<OfferEntity> findByUser(long userId);
+    @Override
     OfferEntity save(OfferEntity offer);
 }

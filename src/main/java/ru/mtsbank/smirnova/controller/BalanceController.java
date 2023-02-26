@@ -34,9 +34,9 @@ public class BalanceController {
             sumCredit+=credits.get(i).getAmount();
         }
         double ans = sumDebit - sumCredit;
-        model.addAttribute("User id", userId);
-        model.addAttribute("User name", userRepository.getUserById(userId).getFirstName());
-        model.addAttribute("Current balance", ans);
+        model.addAttribute("userId", userId);
+        model.addAttribute("userName", userRepository.getUserById(userId).getFirstName());
+        model.addAttribute("currentBalance", ans);
         return "balans";
     }
 }

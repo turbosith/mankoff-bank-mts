@@ -26,7 +26,7 @@ public class OfferService {
 
     public List<OfferDTO> findAll() {
         var offerEntities = offerRepository.findAll();
-        return listToDTO(offerEntities);
+        return listToDTO((List<OfferEntity>) offerEntities);
     }
 
     public List<OfferDTO> findAllByUserId(Long id) {

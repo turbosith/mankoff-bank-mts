@@ -2,7 +2,6 @@ package ru.evsmanko.mankoff.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import ru.evsmanko.mankoff.entity.Debit;
 import ru.evsmanko.mankoff.entity.OfferEntity;
 
 import java.util.List;
@@ -13,6 +12,5 @@ import java.util.List;
  */
 @Repository
 public interface OfferRepository extends CrudRepository<OfferEntity, Long> {
-    //List<OfferEntity> findAllByUserId(long userId);
-    OfferEntity save(OfferEntity offer);
+    List<OfferEntity> findByUser(long userId);
 }

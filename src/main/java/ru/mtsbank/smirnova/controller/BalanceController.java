@@ -14,7 +14,6 @@ import ru.evsmanko.mankoff.repository.UserRepository;
 import java.util.List;
 
 @Controller
-@AllArgsConstructor
 public class BalanceController {
     private final CreditRepository creditRepository;
     private final DebitRepository debitRepository;

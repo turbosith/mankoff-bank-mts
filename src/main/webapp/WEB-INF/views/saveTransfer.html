@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Save Transfer</title>
+</head>
+<body>
+<div class="container">
+    <form th:method="POST" th:action="@{/transfers}" th:object="${transfer}">
+        <label for="id">Id</label>
+        <input type="int" th:field="*{id}" id="id"/>
+        <br>
+        <label for="senderId">Sender id</label>
+        <input type="int" th:field="*{senderId}" id="senderId"/>
+        <br>
+
+        <label for="receiverId">Receiver id</label>
+        <input type="int" th:field="*{receiverId}" id="receiverId"/>
+        <br>
+
+        <label for="departureTime">Departure time</label>
+        <input type="datetime-local" th:field="*{departureTime}" id="departureTime"/>
+        <br>
+
+        <label for="amount">Amount</label>
+        <input type="int" th:field="*{amount}" id="amount"/>
+        <br>
+
+        <input type="submit" value="Save transfer">
+    </form>
+</div>
+
+</body>
+</html>

@@ -32,12 +32,12 @@ public class PaymentController {
     @GetMapping("/payment/save")
     public String savePayment(Model model){
         model.addAttribute("payment", new PaymentEntity());
-        return "save";
+        return "savePayment";
     }
 
     @PostMapping
     public String createNewPayment(@ModelAttribute("payment") PaymentEntity payment){
         paymentRepository.savePayment(payment);
-        return "redirect:/smirnova/payment/save";
+        return "redirect:/smirnova/payments";
     }
 }

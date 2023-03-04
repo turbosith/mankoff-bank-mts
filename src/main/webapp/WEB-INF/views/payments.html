@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ваши платежи</title>
+  <style>
+        body {
+            background-color: lightgray;
+        }
+        h1 {
+            text-align: center;
+            color: red;
+            font-family: verdana;
+            font-size: 300%;
+        }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            border-color: gray;
+            background-color: white;
+            font-size: 120%;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+    </style>
+</head>
+<body>
+  <h1>Ваши платежи</h1>
+
+  <table>
+    <tr>
+      <td><b>Номер платежа</b></td>
+      <td><b>MCC</b></td>
+      <td><b>Сумма</b></td>
+      <td><b>Время</b></td>
+    </tr>
+
+    <tr th:each="payment : ${payments}">
+      <td th:text="${payment.id}"></td>
+      <td th:text="${payment.mccCode}"></td>
+      <td th:text="${payment.amount}"></td>
+      <td th:text="${payment.time}"></td>
+    </tr>
+  </table>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Платеж</title>
+  <style>
+        body {
+            background-color: lightgray;
+        }
+        h1 {
+            text-align: center;
+            color: red;
+            font-family: verdana;
+            font-size: 300%;
+        }
+        button {
+          text-align: center;
+          font-size:150%;
+
+        }
+
+    </style>
+</head>
+
+<body>
+  <h1>Текущий платёж</h1>
+  <form th:method="POST" th:action="@{/payments}" th:object="${payment}">
+
+  <label for="id">id платежа <input type="int" th:field="*{id}" id="id"/></label>
+  <br/>
+  <label for="customerId">id пользователя <input type="int" th:field="*{customerId}" id="customerId"/></label>
+  <br/>
+  <label for="mccCode">MCC <input type="int" th:field="*{mccCode}" id="mccCode"/></label>
+  <br/>
+  <label for="amount">Сумма <input type="int" th:field="*{amount}" id="amount"/></label>
+  <br/>
+  <label for="time">Время <input type="time" th:field="*{time}" id="time"/></label>
+  <br/>
+  <button>Сохранить платёж</button>
+  </form>
+</body>
+</html>

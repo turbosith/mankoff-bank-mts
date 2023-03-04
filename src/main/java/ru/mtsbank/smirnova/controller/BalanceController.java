@@ -15,8 +15,27 @@ import java.util.List;
 
 @Controller
 public class BalanceController {
-    @GetMapping("/balans")
-    public String getBalance(){
+    private final CreditRepository creditRepository;
+    private final DebitRepository debitRepository;
+    private final UserRepository userRepository;
+
+    @GetMapping("/balans/{userId}")
+    public String getBalance(Model model, @PathVariable("userId") Long userId){
+
+        List<Debit> debits = debitRepository.findAllByUserId(userId);
+        List<Credit> credits = creditRepository.findAllByUserId(userId);
+        double sumDebit=0;
+        double sumCredit=0;
+        for(int i=0; i < debits.size(); i++) {
+            sumDebit+=debits.get(i).getAmount();
+        }
+        for(int i=0; i < credits.size(); i++) {
+            sumCredit+=credits.get(i).getAmount();
+        }
+        double ans = sumDebit - sumCredit;
+        model.addAttribute("userId", userId);
+        model.addAttribute("userName", userRepository.getUserById(userId).getFirstName());
+        model.addAttribute("currentBalance", ans);
         return "balans";
     }
 }

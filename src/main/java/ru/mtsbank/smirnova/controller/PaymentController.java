@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.evsmanko.mankoff.entity.PaymentEntity;
+import ru.evsmanko.mankoff.repository.PaymentJDBCRepository;
 import ru.evsmanko.mankoff.repository.PaymentRepository;
 
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @RequestMapping("/smirnova")
 public class PaymentController {
-    private final PaymentRepository paymentRepository;
+    private final PaymentJDBCRepository paymentRepository;
 
     @GetMapping("/payment/all")
     public String allPayments(Model model){
